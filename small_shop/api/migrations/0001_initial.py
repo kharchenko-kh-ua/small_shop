@@ -5,6 +5,11 @@ from django.db import migrations
 from django.db import models
 
 
+def create_test_user(apps, schema_editor):
+    User = apps.get_model("auth", "User")
+    User.objects.create_superuser("dev", "dev@small-shop.com", "VerySafePassword0000!")
+
+
 class Migration(migrations.Migration):
     initial = True
 
@@ -46,4 +51,5 @@ class Migration(migrations.Migration):
                 ),
             ],
         ),
+        migrations.RunPython(create_test_user),
     ]

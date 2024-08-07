@@ -1,9 +1,6 @@
 # Common shortcuts
 run-app:
-	docker compose -f docker-compose.yml -d
-
-run-logs:
-	docker compose -f docker-compose.yml
+	docker compose -f docker-compose.yml up
 
 run-test:
 	docker compose -f docker-compose.yml exec api pytest .
@@ -26,3 +23,9 @@ migrate:
 
 shell:
 	docker compose -f docker-compose.yml exec api python manage.py shell
+
+bash:
+	docker compose -f docker-compose.yml exec api bash
+
+test:
+	docker compose -f docker-compose.yml exec api pytest .
