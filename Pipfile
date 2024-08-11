@@ -12,6 +12,11 @@ drf-yasg = "*"
 pytest = "*"
 pytest-django = "*"
 pre-commit = "*"
+django-oauth-toolkit = "*"
+djangorestframework-simplejwt = "*"
+django-cors-headers = "*"
+ipython = "*"
+setuptools = "*"
 
 [dev-packages]
 
