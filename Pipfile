@@ -17,8 +17,11 @@ djangorestframework-simplejwt = "*"
 django-cors-headers = "*"
 ipython = "*"
 setuptools = "*"
+awscli = "*"
+awsebcli = "*"
+gunicorn = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.12.3"
+python_version = "3.11"
