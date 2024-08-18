@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-b$qk-_xw2pj*27#%-%uwaqr=+wu1nsopiqd1x=4kqky0cf68z*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0"]
+ALLOWED_HOSTS = [".elasticbeanstalk.com", "localhost", "127.0.0.1", "0.0.0.0"]
 
 
 # Application definition
@@ -53,6 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "oauth2_provider.middleware.OAuth2TokenMiddleware",
 ]
 
 ROOT_URLCONF = "small_shop.urls"
@@ -105,6 +106,11 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "oauth2_provider.backends.OAuth2Backend",
+)
 
 
 # Internationalization

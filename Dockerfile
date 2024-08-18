@@ -1,13 +1,15 @@
-FROM python:3.12.3
+FROM python:3.11
 
-WORKDIR /app
-
-RUN pip install --no-cache-dir pipenv
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY . .
 
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir pipenv
 RUN pipenv install --deploy --system
 
-RUN sed -i 's/\r$//g' /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
+WORKDIR /small_shop
+COPY ./entrypoint.sh .
 
-# ENTRYPOINT ["/app/entrypoint.sh"]
+RUN chmod +x entrypoint.sh
+
+CMD ["./entrypoint.sh"]
