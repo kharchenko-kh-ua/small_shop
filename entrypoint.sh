@@ -11,7 +11,8 @@ then
     echo "PostgreSQL started"
 fi
 
-python manage.py makemigrations
+export $(cat .env | xargs)
+
 python manage.py migrate --no-input
 
 gunicorn small_shop.wsgi:application --bind 0.0.0.0:8000 &
@@ -19,3 +20,4 @@ gunicorn small_shop.wsgi:application --bind 0.0.0.0:8000 &
 unlink /etc/nginx/sites-enabled/default
 
 nginx -g 'daemon off;'
+0

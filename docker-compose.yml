@@ -3,7 +3,7 @@ services:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./small_shop/:/app/
+      - ./small_shop/:/small_shop/
     ports:
       - "8000:8000"
     depends_on:
