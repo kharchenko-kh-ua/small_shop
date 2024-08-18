@@ -9,7 +9,7 @@ RUN pipenv install --deploy --system
 
 WORKDIR /small_shop
 COPY ./entrypoint.sh .
-COPY ./env .
+COPY ./.env .
 RUN cat .env
 
 RUN chmod +x entrypoint.sh
